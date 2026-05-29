@@ -249,6 +249,15 @@ export default function App() {
                 </p>
               </div>
 
+              <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center lg:justify-start">
+                <img
+                  src="https://i.ibb.co/gZxGKByz/Chat-GPT-Image-29-de-mai-de-2026-17-49-35.png"
+                  alt="Mockup Capas de Caderno Canva"
+                  referrerPolicy="no-referrer"
+                  className="w-full max-w-[500px] h-auto object-contain"
+                />
+              </div>
+
               <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Personalize em poucos minutos, envie para impressão e atenda seus clientes com muito mais agilidade, sem começar do zero e sem depender de designer.
               </p>
