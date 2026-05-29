@@ -527,8 +527,8 @@ export default function App() {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex gap-4 items-start">
-              <div className="p-3 bg-indigo-100 text-indigo-700 rounded-2xl">
+            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex flex-col items-center text-center gap-4">
+              <div className="p-3 bg-indigo-100 text-indigo-700 rounded-2xl flex items-center justify-center shrink-0">
                 <Clock className="w-6 h-6 shrink-0" />
               </div>
               <div className="space-y-2">
@@ -539,8 +539,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex gap-4 items-start">
-              <div className="p-3 bg-pink-100 text-pink-700 rounded-2xl">
+            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex flex-col items-center text-center gap-4">
+              <div className="p-3 bg-pink-100 text-pink-700 rounded-2xl flex items-center justify-center shrink-0">
                 <Printer className="w-6 h-6 shrink-0" />
               </div>
               <div className="space-y-2">
@@ -551,8 +551,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex gap-4 items-start">
-              <div className="p-3 bg-emerald-100 text-emerald-700 rounded-2xl">
+            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex flex-col items-center text-center gap-4">
+              <div className="p-3 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center shrink-0">
                 <Sparkles className="w-6 h-6 shrink-0" />
               </div>
               <div className="space-y-2">
@@ -563,8 +563,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex gap-4 items-start">
-              <div className="p-3 bg-amber-100 text-amber-700 rounded-2xl">
+            <div className="bg-slate-50 p-6 md:p-8 rounded-3xl border border-slate-100 flex flex-col items-center text-center gap-4">
+              <div className="p-3 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center shrink-0">
                 <FolderPlus className="w-6 h-6 shrink-0" />
               </div>
               <div className="space-y-2">
