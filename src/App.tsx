@@ -26,6 +26,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Plan, Bonus, Review, FAQItem } from './types';
 import CheckoutModal from './components/CheckoutModal';
 import FAQAccordion from './components/FAQAccordion';
+import { InfiniteCarouselRow } from './components/InfiniteCarouselRow';
 
 const mockupNotebooks = '/src/assets/images/mockup_notebooks_1780084514295.png';
 
@@ -251,7 +252,7 @@ export default function App() {
 
               <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center">
                 <img
-                  src="https://i.ibb.co/gZxGKByz/Chat-GPT-Image-29-de-mai-de-2026-17-49-35.png"
+                  src="https://i.ibb.co/Gf9RQv2x/0e5bb497-93b5-4572-a81b-738ffbcaae97.png"
                   alt="Mockup Capas de Caderno Canva"
                   referrerPolicy="no-referrer"
                   className="w-full max-w-[500px] h-auto object-contain"
@@ -318,70 +319,95 @@ export default function App() {
           </div>
 
           {/* Infinite Scroll Showcase with Two Horizontal Rows */}
-          <div className="w-full overflow-hidden relative hover-pause flex flex-col gap-6 py-6 select-none">
+          <div className="w-full overflow-hidden relative flex flex-col gap-6 py-6 select-none">
             {/* Left Fade Gradient overlay */}
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
             {/* Right Fade Gradient overlay */}
-            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+            
+            {/* Row 1 - Scrolls Left & supports touch drag */}
+            <InfiniteCarouselRow
+              direction="left"
+              speed={0.8}
+              images={[
+                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
+                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
+                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
+                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
+                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg",
+                "https://i.ibb.co/XxrgQJdt/Chat-GPT-Image-29-de-mai-de-2026-18-10-18-6.png",
+                "https://i.ibb.co/BHP0cRR6/Chat-GPT-Image-29-de-mai-de-2026-18-10-17-4.png",
+                "https://i.ibb.co/s9Tm7ZB3/Chat-GPT-Image-29-de-mai-de-2026-18-10-17-5.png"
+              ]}
+            />
+
+            {/* Row 2 - Scrolls Right & supports touch drag */}
+            <InfiniteCarouselRow
+              direction="right"
+              speed={0.8}
+              images={[
+                "https://i.ibb.co/hFMk90tF/vasco.jpg",
+                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
+                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
+                "https://i.ibb.co/1YstQMXY/naruto.jpg",
+                "https://i.ibb.co/cXsSdGqb/Chat-GPT-Image-29-de-mai-de-2026-18-10-15-3.png",
+                "https://i.ibb.co/fzRjNtWf/Chat-GPT-Image-29-de-mai-de-2026-18-10-15-1.png",
+                "https://i.ibb.co/jvV03mq1/Chat-GPT-Image-29-de-mai-de-2026-18-10-15-2.png"
+              ]}
+            />
+          </div>
+
+          {/* Bridge transition styling to Canva Editor view */}
+          <div className="my-10 max-w-4xl mx-auto text-center px-4 relative">
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent z-0" />
+            <div className="relative inline-block bg-slate-50 px-6 sm:px-8 py-3 rounded-full border border-slate-200/50 shadow-sm z-10">
+              <span className="flex items-center justify-center gap-2 text-indigo-700 font-extrabold text-xs sm:text-sm uppercase tracking-wider">
+                <Sparkles className="w-4 h-4 text-amber-500 animate-pulse shrink-0" />
+                Dê uma espiada nos modelos por dentro do Canva!
+                <Sparkles className="w-4 h-4 text-amber-500 animate-pulse shrink-0" />
+              </span>
+            </div>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-8">
+            <h3 id="section_canva_editor_subtitle" className="font-display font-extrabold text-xl md:text-2xl text-gray-800 tracking-tight uppercase">
+              Modelos de Designers Reais 100% Organizados
+            </h3>
+            <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mx-auto">
+              Veja o layout profissional com camadas bem organizadas, fontes editáveis e designs projetados milimetricamente para um acabamento perfeito na impressão.
+            </p>
+          </div>
+
+          {/* Second Infinite Scroll Carousel - Canva Internals with 2 columns/tracks */}
+          <div className="w-full overflow-hidden relative flex flex-col gap-6 py-6 select-none bg-slate-100/35 rounded-3xl border border-slate-200/30">
+            {/* Left Fade Gradient overlay */}
+            <div className="absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            {/* Right Fade Gradient overlay */}
+            <div className="absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
             
             {/* Row 1 - Scrolls Left */}
-            <div className="flex gap-4 w-max animate-scroll-left">
-              {[
-                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
-                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
-                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
-                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
-                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg",
-                // Duplicate elements for seamless looping loop
-                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
-                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
-                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
-                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
-                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg",
-                // Extra copy for smoothness
-                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
-                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
-                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
-                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
-                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg"
-              ].map((imgUrl, i) => (
-                <img
-                  key={`row1-${i}`}
-                  src={imgUrl}
-                  alt="Capa de Caderno"
-                  referrerPolicy="no-referrer"
-                  className="h-44 sm:h-64 w-auto object-contain rounded-2xl"
-                />
-              ))}
-            </div>
+            <InfiniteCarouselRow
+              direction="left"
+              speed={0.7}
+              images={[
+                "https://i.ibb.co/391CYnDC/01.webp",
+                "https://i.ibb.co/zTBxPtpW/02.webp",
+                "https://i.ibb.co/Z61CtRvd/03.webp",
+                "https://i.ibb.co/S7fTLKZf/04.webp"
+              ]}
+            />
 
             {/* Row 2 - Scrolls Right */}
-            <div className="flex gap-4 w-max animate-scroll-right">
-              {[
-                "https://i.ibb.co/hFMk90tF/vasco.jpg",
-                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
-                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
-                "https://i.ibb.co/1YstQMXY/naruto.jpg",
-                // Duplicate elements for seamless looping loop
-                "https://i.ibb.co/hFMk90tF/vasco.jpg",
-                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
-                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
-                "https://i.ibb.co/1YstQMXY/naruto.jpg",
-                // Extra copy for loops
-                "https://i.ibb.co/hFMk90tF/vasco.jpg",
-                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
-                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
-                "https://i.ibb.co/1YstQMXY/naruto.jpg"
-              ].map((imgUrl, i) => (
-                <img
-                  key={`row2-${i}`}
-                  src={imgUrl}
-                  alt="Capa de Caderno"
-                  referrerPolicy="no-referrer"
-                  className="h-44 sm:h-64 w-auto object-contain rounded-2xl"
-                />
-              ))}
-            </div>
+            <InfiniteCarouselRow
+              direction="right"
+              speed={0.7}
+              images={[
+                "https://i.ibb.co/93z52bPX/05.webp",
+                "https://i.ibb.co/KjbMk8tC/06.webp",
+                "https://i.ibb.co/RTj4KK7G/07.webp",
+                "https://i.ibb.co/tMvm95s3/08.webp"
+              ]}
+            />
           </div>
 
           <div className="text-center mt-12 space-y-6 px-2">
@@ -773,47 +799,75 @@ export default function App() {
             </div>
 
             {/* Plan 2: Completo (Bônus included) */}
-            <div id="plan_card_complete" className="bg-white rounded-3xl border-2 border-gold-400 p-6 md:p-8 flex flex-col justify-between shadow-xl relative md:scale-102 hover:scale-[1.01] transition-all overflow-hidden mt-4 md:mt-0">
+            <div id="plan_card_complete" className="bg-white rounded-3xl border-2 border-amber-400 p-6 md:p-8 flex flex-col justify-between shadow-2xl shadow-amber-200/30 relative md:scale-102 hover:scale-[1.01] transition-all overflow-visible mt-6 md:mt-0">
               
-              {/* Highlight Ribbon Ribbon Badge */}
-              <div className="absolute top-0 right-0 bg-gold-400 text-slate-950 text-[10px] font-black px-4 py-1.5 uppercase tracking-widest rounded-bl-xl shadow-xs">
-                {plans[1].badge}
+              {/* Elegant floating badge pill centered at the very top */}
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 via-amber-350 to-gold-500 text-slate-950 text-[10px] font-black px-4 py-1.5 uppercase tracking-widest rounded-full shadow-md border border-gold-300 flex items-center gap-1.5 z-10 whitespace-nowrap leading-none">
+                <Flame className="w-3.5 h-3.5 text-red-600 animate-pulse fill-red-500 shrink-0" />
+                <span>{plans[1].badge}</span>
               </div>
 
               <div className="space-y-6">
-                <div>
-                  <h3 className="font-display font-black text-lg text-gold-600 uppercase tracking-widest flex items-center gap-1.5 leading-none">
-                    {plans[1].name}
+                <div className="text-center md:text-left">
+                  <h3 className="font-display font-black text-xl text-amber-500 uppercase tracking-widest flex items-center justify-center md:justify-start gap-1.5 leading-none">
+                    <Sparkles className="w-5 h-5 text-amber-500 shrink-0" />
+                    {plans[1].name.replace('⚡ ', '')}
                   </h3>
-                  <p className="text-gray-900 text-sm font-bold leading-snug mt-1.5">
+                  <p className="text-gray-900 text-sm font-extrabold leading-snug mt-2 text-center md:text-left">
                     {plans[1].subtitle}
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-2">
-                  <span className="text-[11px] font-bold text-gold-700 uppercase tracking-wider block">O que inclui + bônus:</span>
-                  {plans[1].features.map((feat, idx) => {
-                    const isNew = idx >= 3 && idx <= 5; // index of bonus items
-                    return (
-                      <div key={idx} className="flex items-start gap-2">
-                        <div className={`shrink-0 p-0.5 rounded-full mt-0.5 ${isNew ? 'bg-gold-100 text-gold-700 font-bold' : 'bg-gold-50 text-gold-600'}`}>
-                          <Check className="w-3.5 h-3.5" />
+                <div className="space-y-3.5 pt-1">
+                  <span className="text-[11px] font-bold text-amber-700 uppercase tracking-wider block text-center md:text-left">
+                    O que inclui + bônus:
+                  </span>
+                  <div className="space-y-2.5">
+                    {plans[1].features.map((feat, idx) => {
+                      const isNew = idx >= 3 && idx <= 5; // index of bonus items
+                      if (isNew) {
+                        return (
+                          <div key={idx} className="flex items-start gap-3 bg-amber-50/60 p-3 rounded-2xl border border-amber-200/45 transition-all hover:bg-amber-100/40">
+                            <div className="shrink-0 p-1 bg-amber-100 text-amber-700 font-bold rounded-lg mt-0.5 shadow-xs">
+                              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                            </div>
+                            <div className="space-y-1 text-left">
+                              <span className="text-xs text-amber-950 font-bold block leading-snug">
+                                {feat.includes(' — ') ? feat.split(' — ')[0] : feat}
+                              </span>
+                              {feat.includes(' — ') && (
+                                <span className="text-[11px] text-slate-600 block leading-normal font-medium">
+                                  {feat.split(' — ')[1]}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      }
+                      return (
+                        <div key={idx} className="flex items-start gap-2.5 px-1 py-0.5 text-left">
+                          <div className="shrink-0 p-0.5 bg-emerald-50 text-emerald-600 rounded-full mt-0.5 border border-emerald-100">
+                            <Check className="w-3 h-3" />
+                          </div>
+                          <span className="text-xs text-slate-750 font-semibold leading-normal">{feat}</span>
                         </div>
-                        <span className={`text-xs ${isNew ? 'text-gold-950 font-bold' : 'text-slate-600'}`}>{feat}</span>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-100 space-y-4">
                 <div className="text-center">
-                  <span className="text-xs text-gray-400 line-through block mb-0.5">{plans[1].originalPrice} Por apenas:</span>
-                  <span className="font-display font-black text-4xl text-gold-500">{plans[1].price}</span>
+                  <span className="text-xs text-slate-400 line-through block mb-0.5 font-bold">{plans[1].originalPrice}</span>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Por apenas:</span>
+                    <span className="font-display font-black text-4xl text-amber-500">{plans[1].price}</span>
+                  </div>
                 </div>
 
-                <div className="bg-gold-50/70 border border-gold-200/50 rounded-xl p-3 text-center">
-                  <p className="text-[11px] text-gold-900 font-medium leading-relaxed">
+                <div className="bg-amber-50/45 border border-amber-200/40 rounded-xl p-3 text-center">
+                  <p className="text-[11px] text-amber-900 font-semibold leading-relaxed">
                     {plans[1].notes}
                   </p>
                 </div>
@@ -822,9 +876,10 @@ export default function App() {
                   type="button"
                   id="checkout_complete_btn"
                   onClick={() => handleOpenCheckout('complete')}
-                  className="w-full bg-gold-400 hover:bg-gold-500 hover:scale-101 text-slate-950 font-bold py-3.5 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider shadow-md focus:ring-4 focus:ring-gold-100"
+                  className="w-full bg-gradient-to-r from-amber-450 to-gold-500 hover:from-amber-500 hover:to-gold-600 text-slate-950 font-extrabold py-3.5 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-1.5 border border-amber-350"
                 >
-                  {plans[1].cta}
+                  <Sparkles className="w-4 h-4 shrink-0 text-amber-900 animate-pulse" />
+                  <span>{plans[1].cta}</span>
                 </button>
               </div>
 
