@@ -7,6 +7,7 @@ import {
   Lock, 
   Star, 
   Clock, 
+  ChevronLeft,
   ChevronRight, 
   Check, 
   Gift, 
@@ -33,6 +34,7 @@ const mockupNotebooks = '/src/assets/images/mockup_notebooks_1780084514295.png';
 export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<'basic' | 'complete'>('complete');
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
 
   // FAQ Data from the prompt
   const faqItems: FAQItem[] = [
@@ -120,31 +122,10 @@ export default function App() {
   ];
 
   // Client Testimonials from the prompt
-  const reviews: Review[] = [
-    {
-      id: 1,
-      text: "“Comprei mais pelo preço, mas acabei me surpreendendo. As capas são bem bonitas e consegui editar no Canva sem dificuldade.”",
-      author: "Patrícia",
-      role: "Papelaria personalizada"
-    },
-    {
-      id: 2,
-      text: "“Eu perdia muito tempo criando capa simples do zero. Agora só escolho o modelo, troco o nome e já mando a prévia para o cliente.”",
-      author: "Renata",
-      role: "Personalizados escolares"
-    },
-    {
-      id: 3,
-      text: "“Gostei porque tem bastante variedade. Dá para usar como base e adaptar para vários tipos de pedido.”",
-      author: "Camila",
-      role: "Gráfica rápida"
-    },
-    {
-      id: 4,
-      text: "“Não sou designer, então pra mim ajudou bastante. Consegui personalizar as capas sem ficar travando no Canva.”",
-      author: "Juliana",
-      role: "Mãe empreendedora"
-    }
+  const testimonialImages = [
+    "https://i.ibb.co/bgf6r0wz/Design-sem-nome.png",
+    "https://i.ibb.co/v4hL5mSw/Chat-GPT-Image-29-de-mai-de-2026-20-41-50.png",
+    "https://i.ibb.co/8n9KnV4Z/Chat-GPT-Image-29-de-mai-de-2026-20-39-40.png"
   ];
 
   // Bonuses from the prompt
@@ -836,9 +817,9 @@ export default function App() {
                   type="button"
                   id="checkout_complete_btn"
                   onClick={() => handleOpenCheckout('complete')}
-                  className="w-full bg-gradient-to-r from-amber-450 to-gold-500 hover:from-amber-500 hover:to-gold-600 text-slate-950 font-extrabold py-3.5 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-1.5 border border-amber-350"
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-black py-4 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 border-none"
                 >
-                  <Sparkles className="w-4 h-4 shrink-0 text-amber-900 animate-pulse" />
+                  <Sparkles className="w-4 h-4 shrink-0 text-white animate-pulse" />
                   <span>{plans[1].cta}</span>
                 </button>
               </div>
@@ -850,44 +831,71 @@ export default function App() {
         </div>
       </section>
 
-      {/* Social Proof Section (Reviews) */}
-      <section id="reviews_section" className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Social Proof Section (Reviews Showcase) */}
+      <section id="reviews_section" className="py-16 md:py-24 bg-white overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Clientes Reais</span>
             <h2 id="reviews_section_title" className="font-display font-extrabold text-2xl md:text-4xl text-gray-900 tracking-tight">
               VEJA O QUE NOSSAS CLIENTES ESTÃO DIZENDO
             </h2>
           </div>
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {reviews.map((rev) => (
-              <div 
-                key={rev.id} 
-                id={`review_card_${rev.id}`}
-                className="bg-slate-50 p-6 rounded-3xl border border-slate-100 flex flex-col justify-between space-y-4 shadow-xs"
+          {/* Image Carousel */}
+          <div className="relative max-w-sm mx-auto px-8">
+            {/* Main Carousel Card Container  */}
+            <div className="relative overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-[400px]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentReviewIndex}
+                  src={testimonialImages[currentReviewIndex]}
+                  alt={`Depoimento ${currentReviewIndex + 1}`}
+                  referrerPolicy="no-referrer"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="max-h-[360px] md:max-h-[420px] w-auto object-contain"
+                />
+              </AnimatePresence>
+
+              {/* Navigation Arrows */}
+              <button
+                type="button"
+                onClick={() => setCurrentReviewIndex((prev) => (prev === 0 ? testimonialImages.length - 1 : prev - 1))}
+                className="absolute -left-1 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-slate-800 p-2 rounded-full shadow-lg border border-slate-200 hover:border-slate-300 cursor-pointer transition-all hover:scale-105 active:scale-95 focus:outline-none flex items-center justify-center z-10"
+                aria-label="Anterior"
               >
-                
-                {/* Visual Mock Ratings */}
-                <div className="flex gap-0.5 text-amber-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-500" />
-                  ))}
-                </div>
+                <ChevronLeft className="w-5 h-5 text-slate-700" />
+              </button>
 
-                <p className="text-gray-700 text-xs md:text-sm italic leading-relaxed">
-                  {rev.text}
-                </p>
+              <button
+                type="button"
+                onClick={() => setCurrentReviewIndex((prev) => (prev === testimonialImages.length - 1 ? 0 : prev + 1))}
+                className="absolute -right-1 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white text-slate-800 p-2 rounded-full shadow-lg border border-slate-200 hover:border-slate-300 cursor-pointer transition-all hover:scale-105 active:scale-95 focus:outline-none flex items-center justify-center z-10"
+                aria-label="Próximo"
+              >
+                <ChevronRight className="w-5 h-5 text-slate-700" />
+              </button>
+            </div>
 
-                <div className="border-t border-gray-200/60 pt-3">
-                  <span className="font-bold text-gray-900 text-xs md:text-sm block">{rev.author}</span>
-                  <span className="text-gray-500 text-[11px] uppercase font-semibold tracking-wider font-mono">{rev.role}</span>
-                </div>
-
-              </div>
-            ))}
+            {/* Pagination Indicator / Dots */}
+            <div className="flex justify-center items-center gap-2 mt-5">
+              {testimonialImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentReviewIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentReviewIndex 
+                      ? "w-7 bg-indigo-600 shadow-xs" 
+                      : "w-2 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                  aria-label={`Ir para slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
         </div>
