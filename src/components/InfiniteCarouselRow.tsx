@@ -4,12 +4,14 @@ interface InfiniteCarouselRowProps {
   images: string[];
   speed?: number;
   direction?: 'left' | 'right';
+  heightClass?: string;
 }
 
 export const InfiniteCarouselRow: React.FC<InfiniteCarouselRowProps> = ({
   images,
   speed = 0.8,
   direction = 'left',
+  heightClass = "h-44 sm:h-56 md:h-64",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -144,7 +146,7 @@ export const InfiniteCarouselRow: React.FC<InfiniteCarouselRowProps> = ({
           alt="Capa de Caderno"
           referrerPolicy="no-referrer"
           draggable="false"
-          className="h-44 sm:h-56 md:h-64 w-auto object-contain rounded-xl select-none shrink-0 transition-transform duration-200 hover:scale-[1.02]"
+          className={`${heightClass} w-auto object-contain rounded-xl select-none shrink-0 transition-transform duration-200 hover:scale-[1.02]`}
         />
       ))}
     </div>

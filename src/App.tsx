@@ -255,7 +255,7 @@ export default function App() {
                   src="https://i.ibb.co/Gf9RQv2x/0e5bb497-93b5-4572-a81b-738ffbcaae97.png"
                   alt="Mockup Capas de Caderno Canva"
                   referrerPolicy="no-referrer"
-                  className="w-full max-w-[500px] h-auto object-contain"
+                  className="w-full max-w-[500px] h-auto object-contain mix-blend-multiply"
                 />
               </div>
 
@@ -329,6 +329,7 @@ export default function App() {
             <InfiniteCarouselRow
               direction="left"
               speed={0.8}
+              heightClass="h-56 sm:h-72 md:h-80 lg:h-[360px]"
               images={[
                 "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
                 "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
@@ -345,6 +346,7 @@ export default function App() {
             <InfiniteCarouselRow
               direction="right"
               speed={0.8}
+              heightClass="h-56 sm:h-72 md:h-80 lg:h-[360px]"
               images={[
                 "https://i.ibb.co/hFMk90tF/vasco.jpg",
                 "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
@@ -389,6 +391,7 @@ export default function App() {
             <InfiniteCarouselRow
               direction="left"
               speed={0.7}
+              heightClass="h-64 sm:h-80 md:h-[360px] lg:h-[450px]"
               images={[
                 "https://i.ibb.co/391CYnDC/01.webp",
                 "https://i.ibb.co/zTBxPtpW/02.webp",
@@ -401,6 +404,7 @@ export default function App() {
             <InfiniteCarouselRow
               direction="right"
               speed={0.7}
+              heightClass="h-64 sm:h-80 md:h-[360px] lg:h-[450px]"
               images={[
                 "https://i.ibb.co/93z52bPX/05.webp",
                 "https://i.ibb.co/KjbMk8tC/06.webp",
@@ -509,64 +513,6 @@ export default function App() {
 
         </div>
       </section>
-
-      {/* Opp Cost Section */}
-      <section id="opportunity_cost_section" className="py-16 md:py-24 bg-emerald-50 text-slate-800 relative overflow-hidden border-y border-emerald-100">
-        
-        {/* Soft background glow decoration */}
-        <div className="absolute inset-0 bg-radial-gradient from-emerald-100/60 to-transparent pointer-events-none" />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
-          
-          <div className="inline-flex items-center gap-2 bg-emerald-100/80 px-4 py-2 rounded-full text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-            <AlertTriangle className="w-4.5 h-4.5 text-emerald-600" />
-            Não Deixe o Tempo Passar
-          </div>
-
-          <h2 id="opp_cost_title" className="font-display font-extrabold text-2xl md:text-4xl text-slate-900 leading-tight">
-            QUANTO TEMPO E QUANTOS PEDIDOS VOCÊ VAI PERDER POR NÃO TER ESSAS CAPAS PRONTAS?
-          </h2>
-
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium">
-            Enquanto você cria tudo do zero, outras pessoas já estão personalizando, enviando a prévia e fechando pedidos.
-          </p>
-
-          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-xl mx-auto border border-emerald-200/80 text-left space-y-4 shadow-sm">
-            <span className="font-display font-bold text-emerald-800 uppercase block tracking-wider text-xs">Com esse material, você consegue:</span>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "Atender mais pedidos",
-                "Entregar mais rápido",
-                "Trabalhar com menos estresse",
-                "Ter mais variedade para oferecer",
-                "Personalizar capas mesmo sem ser designer"
-              ].map((txt, i) => (
-                <div key={i} className="flex items-center gap-2.5">
-                  <span className="flex-shrink-0 text-emerald-600">
-                    <CheckCircle className="w-5 h-5 fill-emerald-100" />
-                  </span>
-                  <span className="text-slate-700 text-xs md:text-sm font-semibold">{txt}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="pt-2">
-            <button
-              type="button"
-              id="opp_cost_cta_btn"
-              onClick={() => handleOpenCheckout('complete')}
-              className="bg-gold-500 hover:bg-gold-600 text-slate-950 font-extrabold text-base md:text-lg py-4.5 px-8 rounded-2xl cursor-pointer shadow-lg hover:shadow-xl hover:scale-101 transition-all inline-flex items-center gap-2 uppercase tracking-wide animate-pulse"
-            >
-              QUERO ACESSAR AGORA E USAR HOJE
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-
-        </div>
-      </section>
-
       {/* Audience section: Ideal For */}
       <section id="ideal_for_section" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
