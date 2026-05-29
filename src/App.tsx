@@ -229,10 +229,10 @@ export default function App() {
         <div className="absolute top-1/2 right-10 w-[300px] h-[300px] bg-teal-200/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="max-w-4xl mx-auto flex flex-col items-center">
             
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            {/* Centered Content Column */}
+            <div className="w-full space-y-6 text-center flex flex-col items-center">
               
               <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full text-emerald-800 text-xs font-bold uppercase tracking-wider">
                 <Lock className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -249,7 +249,7 @@ export default function App() {
                 </p>
               </div>
 
-              <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center lg:justify-start">
+              <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center">
                 <img
                   src="https://i.ibb.co/gZxGKByz/Chat-GPT-Image-29-de-mai-de-2026-17-49-35.png"
                   alt="Mockup Capas de Caderno Canva"
@@ -258,12 +258,12 @@ export default function App() {
                 />
               </div>
 
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl mx-auto text-center">
                 Personalize em poucos minutos, envie para impressão e atenda seus clientes com muito mais agilidade, sem começar do zero e sem depender de designer.
               </p>
 
               {/* Highlights Bullet Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0 pt-2 text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md mx-auto pt-2 text-left">
                 {[
                   "Modelos prontos para editar",
                   "Capas organizadas por tema e estilo",
@@ -280,7 +280,7 @@ export default function App() {
               </div>
 
               {/* Hero Call to Action Buttons */}
-              <div className="pt-4 space-y-3 max-w-sm mx-auto lg:mx-0">
+              <div className="pt-4 space-y-3 max-w-sm mx-auto w-full">
                 <button
                   type="button"
                   id="hero_primary_cta_btn"
@@ -291,44 +291,12 @@ export default function App() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
-                <p className="text-xs text-gray-500 text-center lg:text-left flex items-center justify-center lg:justify-start gap-1">
+                <p className="text-xs text-gray-500 text-center flex items-center justify-center gap-1">
                   <span className="inline-block w-2 h-2 bg-gold-500 rounded-full animate-ping shrink-0" />
                   Você recebe tudo na hora, direto no seu e-mail e WhatsApp.
                 </p>
               </div>
 
-            </div>
-
-            {/* Right Mockup Graphic Column */}
-            <div className="lg:col-span-5 flex justify-center relative mt-10 lg:mt-0 pb-8 lg:pb-0 px-2 sm:px-0">
-              <div className="relative w-full max-w-md">
-                
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-coral-100 to-indigo-100 rounded-3xl -rotate-3 scale-[1.03] opacity-60 filter blur-xs" />
-                
-                {/* Simulated App Mockup Body */}
-                <div id="mockup_image_frame" className="relative bg-white p-3 rounded-3xl shadow-xl border border-gray-100 overflow-hidden group">
-                  <img
-                    src={mockupNotebooks}
-                    alt="Coleção de Capas de Caderno Editáveis"
-                    className="w-full h-auto rounded-2xl object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    referrerPolicy="no-referrer"
-                  />
-                  
-                  {/* Floating Interactive Badge */}
-                  <div className="absolute top-6 right-6 bg-indigo-600 text-white font-bold text-xs md:text-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-amber-300" />
-                    <span>+400 Modelos de Capas</span>
-                  </div>
-                </div>
-
-                {/* Secure Badge */}
-                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-3/4 bg-white border border-emerald-100 text-slate-800 text-xs py-2 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md">
-                  <Lock className="w-3.5 h-3.5 text-emerald-600" />
-                  <span className="font-bold text-slate-900">Garantia Incondicional de 15 Dias</span>
-                </div>
-
-              </div>
             </div>
 
           </div>
@@ -339,80 +307,88 @@ export default function App() {
       <section id="how_it_works_section" className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Fluxo Ilustrado</span>
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Modelos Editáveis</span>
             <h2 id="section_how_works_title" className="font-display font-extrabold text-2xl md:text-4xl text-gray-900 tracking-tight">
-              VEJA COMO FUNCIONAM AS CAPAS DE CADERNO PRONTAS NO CANVA
+              VEJA NOSSOS MODELOS PRONTOS DE CAPAS DE CADERNO
             </h2>
-            <p className="text-gray-600 text-base md:text-lg">
-              Com esse pack, você não precisa criar capa por capa do zero.
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg">
+              Estes são alguns dos mais de 400 modelos incríveis que você vai receber prontos para editar no Canva.
             </p>
           </div>
 
-          {/* Interactive Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 relative">
+          {/* Infinite Scroll Showcase with Two Horizontal Rows */}
+          <div className="w-full overflow-hidden relative hover-pause flex flex-col gap-6 py-6 select-none">
+            {/* Left Fade Gradient overlay */}
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            {/* Right Fade Gradient overlay */}
+            <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
             
-            {/* Step 1 */}
-            <div id="step_1" className="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-gray-100 shadow-xs relative flex flex-row md:flex-col items-center md:items-start gap-4 md:space-y-4 hover:border-indigo-200 transition-all text-left">
-              <span className="font-mono text-2xl md:text-3xl font-black text-indigo-500/30 md:absolute md:top-4 md:right-4 shrink-0 leading-none">01</span>
-              <div className="p-2.5 sm:p-3 bg-indigo-50 text-indigo-600 rounded-xl shrink-0">
-                <Layout className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight">Você abre o Canva.</p>
-              </div>
+            {/* Row 1 - Scrolls Left */}
+            <div className="flex gap-4 w-max animate-scroll-left">
+              {[
+                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
+                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
+                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
+                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
+                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg",
+                // Duplicate elements for seamless looping loop
+                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
+                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
+                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
+                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
+                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg",
+                // Extra copy for smoothness
+                "https://i.ibb.co/zhhkckWL/Pokemon.jpg",
+                "https://i.ibb.co/VYfbx71Z/Capirava-2.jpg",
+                "https://i.ibb.co/Tq706PPY/Autismo-F.jpg",
+                "https://i.ibb.co/93d8BR37/Autismo-F-2.jpg",
+                "https://i.ibb.co/nNXzQMf3/Astronauta-1.jpg"
+              ].map((imgUrl, i) => (
+                <img
+                  key={`row1-${i}`}
+                  src={imgUrl}
+                  alt="Capa de Caderno"
+                  referrerPolicy="no-referrer"
+                  className="h-44 sm:h-64 w-auto object-contain rounded-2xl"
+                />
+              ))}
             </div>
 
-            {/* Step 2 */}
-            <div id="step_2" className="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-gray-100 shadow-xs relative flex flex-row md:flex-col items-center md:items-start gap-4 md:space-y-4 hover:border-indigo-200 transition-all text-left">
-              <span className="font-mono text-2xl md:text-3xl font-black text-indigo-500/30 md:absolute md:top-4 md:right-4 shrink-0 leading-none">02</span>
-              <div className="p-2.5 sm:p-3 bg-indigo-50 text-indigo-600 rounded-xl shrink-0">
-                <Eye className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight">Escolhe o modelo.</p>
-              </div>
+            {/* Row 2 - Scrolls Right */}
+            <div className="flex gap-4 w-max animate-scroll-right">
+              {[
+                "https://i.ibb.co/hFMk90tF/vasco.jpg",
+                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
+                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
+                "https://i.ibb.co/1YstQMXY/naruto.jpg",
+                // Duplicate elements for seamless looping loop
+                "https://i.ibb.co/hFMk90tF/vasco.jpg",
+                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
+                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
+                "https://i.ibb.co/1YstQMXY/naruto.jpg",
+                // Extra copy for loops
+                "https://i.ibb.co/hFMk90tF/vasco.jpg",
+                "https://i.ibb.co/xtFQPfrW/patrulha-canina.jpg",
+                "https://i.ibb.co/Kcn3Pshn/panda.jpg",
+                "https://i.ibb.co/1YstQMXY/naruto.jpg"
+              ].map((imgUrl, i) => (
+                <img
+                  key={`row2-${i}`}
+                  src={imgUrl}
+                  alt="Capa de Caderno"
+                  referrerPolicy="no-referrer"
+                  className="h-44 sm:h-64 w-auto object-contain rounded-2xl"
+                />
+              ))}
             </div>
-
-            {/* Step 3 */}
-            <div id="step_3" className="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-gray-100 shadow-xs relative flex flex-row md:flex-col items-center md:items-start gap-4 md:space-y-4 hover:border-indigo-200 transition-all text-left">
-              <span className="font-mono text-2xl md:text-3xl font-black text-indigo-500/30 md:absolute md:top-4 md:right-4 shrink-0 leading-none">03</span>
-              <div className="p-2.5 sm:p-3 bg-indigo-50 text-indigo-600 rounded-xl shrink-0">
-                <Edit3 className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight">Personaliza com nome, turma ou tema.</p>
-              </div>
-            </div>
-
-            {/* Step 4 */}
-            <div id="step_4" className="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-gray-100 shadow-xs relative flex flex-row md:flex-col items-center md:items-start gap-4 md:space-y-4 hover:border-indigo-200 transition-all text-left">
-              <span className="font-mono text-2xl md:text-3xl font-black text-indigo-500/30 md:absolute md:top-4 md:right-4 shrink-0 leading-none">04</span>
-              <div className="p-2.5 sm:p-3 bg-indigo-50 text-indigo-600 rounded-xl shrink-0">
-                <Printer className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight">Baixa o arquivo.</p>
-              </div>
-            </div>
-
-            {/* Step 5 */}
-            <div id="step_5" className="bg-white p-4 sm:p-5 md:p-6 rounded-2xl border border-gray-100 shadow-xs relative flex flex-row md:flex-col items-center md:items-start gap-4 md:space-y-4 hover:border-gold-300 transition-all text-left">
-              <span className="font-mono text-2xl md:text-3xl font-black text-gold-500/30 md:absolute md:top-4 md:right-4 shrink-0 leading-none">05</span>
-              <div className="p-2.5 sm:p-3 bg-gold-50 text-gold-600 rounded-xl shrink-0">
-                <CheckCircle className="w-5 h-5 md:w-6 md:h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight">E envia para impressão.</p>
-              </div>
-            </div>
-
           </div>
 
           <div className="text-center mt-12 space-y-6 px-2">
             <p className="font-semibold text-sm sm:text-base md:text-lg text-gold-850 bg-gold-50/70 inline-block py-2.5 px-5 sm:px-6 rounded-full border border-gold-200/55 max-w-full">
-              Tudo já vem organizado para facilitar sua rotina e te ajudar a entregar mais rápido.
+              Tudo já vem pronto e editável para facilitar sua rotina e te ajudar a vender rápido.
             </p>
+
 
             <div>
               <button

@@ -26,3 +26,36 @@
   background: linear-gradient(135deg, #fae691 0%, #f6d152 40%, #c2820c 100%);
 }
 
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+/* Pause scroll when user interacts or hover if desired */
+.hover-pause:hover .animate-scroll-left,
+.hover-pause:hover .animate-scroll-right {
+  animation-play-state: paused;
+}
+
+
