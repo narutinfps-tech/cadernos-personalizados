@@ -161,7 +161,8 @@ export default function App() {
         "Ajuda você a usar o material com mais segurança"
       ],
       originalPrice: "Valor: R$27",
-      finalPrice: "GRÁTIS"
+      finalPrice: "GRÁTIS",
+      image: "https://i.ibb.co/BHBX7JDR/Chat-GPT-Image-29-de-mai-de-2026-20-18-58.png"
     },
     {
       id: 2,
@@ -175,7 +176,8 @@ export default function App() {
         "Facilita sua rotina de atendimento"
       ],
       originalPrice: "Valor: R$27",
-      finalPrice: "GRÁTIS"
+      finalPrice: "GRÁTIS",
+      image: "https://i.ibb.co/W4xZ6bt1/Chat-GPT-Image-29-de-mai-de-2026-20-27-29.png"
     },
     {
       id: 3,
@@ -189,7 +191,8 @@ export default function App() {
         "Ideal para pedidos rápidos"
       ],
       originalPrice: "Valor: R$27",
-      finalPrice: "GRÁTIS"
+      finalPrice: "GRÁTIS",
+      image: "https://i.ibb.co/67FWZsWm/Chat-GPT-Image-29-de-mai-de-2026-20-23-23.png"
     }
   ];
 
@@ -667,6 +670,17 @@ export default function App() {
                   <p className="text-gray-600 text-xs leading-relaxed font-normal">
                     {bonus.description}
                   </p>
+
+                  {bonus.image && (
+                    <div className="w-full mt-2 bg-slate-50/50 rounded-2xl p-1 border border-slate-100/60 flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={bonus.image} 
+                        alt={bonus.title} 
+                        referrerPolicy="no-referrer"
+                        className="max-h-48 w-auto object-contain transition-transform duration-300 group-hover:scale-103"
+                      />
+                    </div>
+                  )}
 
                   <div className="space-y-2 border-t border-orange-100/75 pt-4 pb-2">
                     {bonus.points.map((pt, index) => (

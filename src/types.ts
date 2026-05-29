@@ -19,6 +19,7 @@ export interface Bonus {
   points: string[];
   originalPrice: string;
   finalPrice: string;
+  image?: string;
 }
 
 export interface Review {
