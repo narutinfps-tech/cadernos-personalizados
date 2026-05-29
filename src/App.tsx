@@ -199,7 +199,6 @@ export default function App() {
       {/* Dynamic Urgency / Trust Top Banner Header */}
       <div id="top_crisis_banner" className="bg-red-600 text-white text-xs sm:text-sm font-bold tracking-wider text-center py-2.5 sm:py-3 px-4 shadow-sm flex items-center justify-center gap-2">
         <div className="flex items-center gap-1.5 font-display flex-wrap justify-center">
-          <Flame className="w-4 h-4 text-amber-300 animate-pulse shrink-0" />
           <span className="uppercase font-extrabold tracking-widest leading-normal">
             ⚡ Oferta Especial Disponível Apenas Hoje - {formattedToday}
           </span>
