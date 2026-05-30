@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   CheckCircle, 
@@ -28,6 +28,7 @@ import { Plan, Bonus, Review, FAQItem } from './types';
 import CheckoutModal from './components/CheckoutModal';
 import FAQAccordion from './components/FAQAccordion';
 import { InfiniteCarouselRow } from './components/InfiniteCarouselRow';
+import SocialProofToast from './components/SocialProofToast';
 
 const mockupNotebooks = '/src/assets/images/mockup_notebooks_1780084514295.png';
 
@@ -35,6 +36,35 @@ export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<'basic' | 'complete'>('complete');
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [viewers, setViewers] = useState(16);
+  const [spotsLeft, setSpotsLeft] = useState(7);
+
+  useEffect(() => {
+    // Fluctuating viewers to simulate real-time page traffic
+    const viewersInterval = setInterval(() => {
+      setViewers(prev => {
+        const delta = Math.floor(Math.random() * 5) - 2; // -2, -1, 0, 1, 2
+        const newVal = prev + delta;
+        return Math.max(11, Math.min(26, newVal));
+      });
+    }, 4500);
+
+    // Progressive countdown of spots left with soft limits to keep tension
+    const spotsInterval = setInterval(() => {
+      setSpotsLeft(prev => {
+        if (prev <= 3) {
+          // Occasionally fluctuate/reset to simulate high demand on the last slots
+          return Math.random() > 0.82 ? 4 : 3;
+        }
+        return prev - 1;
+      });
+    }, 15000);
+
+    return () => {
+      clearInterval(viewersInterval);
+      clearInterval(spotsInterval);
+    };
+  }, []);
 
   // FAQ Data from the prompt
   const faqItems: FAQItem[] = [
@@ -434,8 +464,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Benefit 1 */}
-            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4">
-              <span className="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block font-mono">VANTAGEM 01</span>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 text-center">
               <h3 className="font-display font-bold text-xl text-gray-900">Mais tempo livre ou mais vendas</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Você para de perder horas criando capas repetidas do zero. Com modelos prontos, você só adapta e entrega.
@@ -443,8 +472,7 @@ export default function App() {
             </div>
 
             {/* Benefit 2 */}
-            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4">
-              <span className="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block font-mono">VANTAGEM 02</span>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 text-center">
               <h3 className="font-display font-bold text-xl text-gray-900">Dá conta de mais encomendas</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Pedidos pequenos também tomam tempo quando você precisa começar tudo do zero. Com o pack, você consegue atender mais clientes com menos esforço.
@@ -452,8 +480,7 @@ export default function App() {
             </div>
 
             {/* Benefit 3 */}
-            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4">
-              <span className="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block font-mono">VANTAGEM 03</span>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 text-center">
               <h3 className="font-display font-bold text-xl text-gray-900">Mais segurança na personalização</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Os modelos já vêm prontos para editar no Canva. Você só troca as informações necessárias e mantém o visual profissional.
@@ -461,10 +488,9 @@ export default function App() {
             </div>
 
             {/* Benefit 4 */}
-            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 lg:col-span-1">
-              <span className="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block font-mono">VANTAGEM 04</span>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 lg:col-span-1 text-center">
               <h3 className="font-display font-bold text-xl text-gray-900">Menos retrabalho</h3>
-              <div className="space-y-1.5 text-gray-600 text-sm">
+              <div className="space-y-1.5 text-gray-600 text-sm flex flex-col items-center">
                 <p>• Menos tempo ajustando layout.</p>
                 <p>• Menos dor de cabeça com cliente.</p>
                 <p>• Menos bloqueio criativo na hora de criar.</p>
@@ -472,8 +498,7 @@ export default function App() {
             </div>
 
             {/* Benefit 5 */}
-            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 lg:col-span-2">
-              <span className="text-xs font-extrabold text-indigo-500 uppercase tracking-widest block font-mono">VANTAGEM 05</span>
+            <div className="bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 space-y-4 lg:col-span-2 text-center">
               <h3 className="font-display font-bold text-xl text-gray-900">Independência de designer</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Mesmo sem dominar design, você consegue criar capas bonitas, organizadas e com aparência profissional.
@@ -560,6 +585,46 @@ export default function App() {
 
           </div>
 
+        </div>
+      </section>
+
+      {/* Infinite Carousel below Ideal For Profiles */}
+      <section id="profiles_carousel_section" className="py-6 bg-white overflow-hidden">
+        <div className="w-full overflow-hidden relative flex flex-col gap-6 py-2 select-none">
+          {/* Left Fade Gradient overlay */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-28 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          {/* Right Fade Gradient overlay */}
+          <div className="absolute inset-y-0 right-0 w-16 md:w-28 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          
+          {/* Row 1 - Scrolls Left */}
+          <InfiniteCarouselRow
+            direction="left"
+            speed={0.7}
+            heightClass="h-44 sm:h-52 md:h-60"
+            images={[
+              "https://i.ibb.co/4gFJy5C3/Chat-GPT-Image-29-de-mai-de-2026-21-23-48-10.png",
+              "https://i.ibb.co/V06TDZrF/Chat-GPT-Image-29-de-mai-de-2026-21-23-47-8.png",
+              "https://i.ibb.co/C3gZMYh1/Chat-GPT-Image-29-de-mai-de-2026-21-23-47-9.png",
+              "https://i.ibb.co/5JP0S8J/Chat-GPT-Image-29-de-mai-de-2026-21-23-46-5.png",
+              "https://i.ibb.co/KchwTzrm/Chat-GPT-Image-29-de-mai-de-2026-21-23-46-6.png",
+              "https://i.ibb.co/KjK2Qc91/Chat-GPT-Image-29-de-mai-de-2026-21-23-46-7.png"
+            ]}
+          />
+          
+          {/* Row 2 - Scrolls Right */}
+          <InfiniteCarouselRow
+            direction="right"
+            speed={0.7}
+            heightClass="h-44 sm:h-52 md:h-60"
+            images={[
+              "https://i.ibb.co/hRf1hBcr/Chat-GPT-Image-29-de-mai-de-2026-21-23-45-2.png",
+              "https://i.ibb.co/Cprb4xSW/Chat-GPT-Image-29-de-mai-de-2026-21-23-45-3.png",
+              "https://i.ibb.co/QvtH2zk2/Chat-GPT-Image-29-de-mai-de-2026-21-23-46-4.png",
+              "https://i.ibb.co/4RvJSQFX/Chat-GPT-Image-29-de-mai-de-2026-21-23-45-1.png",
+              "https://i.ibb.co/9k0sVqwc/Chat-GPT-Image-29-de-mai-de-2026-21-21-03-2.png",
+              "https://i.ibb.co/0NkXBNy/Chat-GPT-Image-29-de-mai-de-2026-21-21-04-3.png"
+            ]}
+          />
         </div>
       </section>
 
@@ -725,6 +790,17 @@ export default function App() {
                 <div className="text-center">
                   <span className="text-xs text-gray-400 line-through block mb-0.5">{plans[0].originalPrice} Por apenas:</span>
                   <span className="font-display font-black text-4xl text-gray-900">{plans[0].price}</span>
+
+                  {/* Urgency Indicators */}
+                  <div className="flex flex-1 items-center justify-center gap-2 mt-3 text-[11px] font-semibold">
+                    <span className="inline-flex items-center gap-1 bg-slate-100 text-slate-700 px-2.5 py-1 rounded-full whitespace-nowrap">
+                      <Eye className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                      <span>{viewers} vendo agora</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 bg-red-50 text-red-600 font-bold px-2.5 py-1 rounded-full animate-pulse whitespace-nowrap">
+                      <span>Restam {spotsLeft} unidades</span>
+                    </span>
+                  </div>
                 </div>
 
                 <button
@@ -803,6 +879,17 @@ export default function App() {
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Por apenas:</span>
                     <span className="font-display font-black text-4xl text-amber-500">{plans[1].price}</span>
+                  </div>
+
+                  {/* Urgency Indicators */}
+                  <div className="flex items-center justify-center gap-2 mt-3 text-[11px] font-semibold">
+                    <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-800 px-2.5 py-1 rounded-full whitespace-nowrap border border-amber-100/40">
+                      <Eye className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                      <span>{viewers + 3} vendo agora</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 bg-red-50 text-red-650 px-2.5 py-1 rounded-full animate-pulse whitespace-nowrap">
+                      <span className="text-red-600 font-bold">Restam {spotsLeft - 3 >= 2 ? spotsLeft - 3 : 2} unidades</span>
+                    </span>
                   </div>
                 </div>
 
@@ -986,6 +1073,8 @@ export default function App() {
           />
         )}
       </AnimatePresence>
+
+      <SocialProofToast />
 
     </div>
   );
