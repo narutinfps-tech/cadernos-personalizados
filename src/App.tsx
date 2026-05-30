@@ -30,8 +30,6 @@ import FAQAccordion from './components/FAQAccordion';
 import { InfiniteCarouselRow } from './components/InfiniteCarouselRow';
 import SocialProofToast from './components/SocialProofToast';
 
-const mockupNotebooks = '/src/assets/images/mockup_notebooks_1780084514295.png';
-
 export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedPlanId, setSelectedPlanId] = useState<'basic' | 'complete'>('complete');
@@ -238,10 +236,6 @@ export default function App() {
       {/* Hero Section */}
       <header id="hero_section" className="relative overflow-hidden bg-white pt-8 pb-16 md:py-24 border-b border-gray-100">
         
-        {/* Soft background glow circles */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-200/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 w-[300px] h-[300px] bg-teal-200/10 rounded-full blur-3xl pointer-events-none" />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
             
@@ -263,12 +257,12 @@ export default function App() {
                 </p>
               </div>
 
-              <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center">
+              <div id="subheadline_mockup" className="pt-3 pb-2 flex justify-center overflow-hidden">
                 <img
                   src="https://i.ibb.co/Gf9RQv2x/0e5bb497-93b5-4572-a81b-738ffbcaae97.png"
                   alt="Mockup Capas de Caderno Canva"
                   referrerPolicy="no-referrer"
-                  className="w-full max-w-[500px] h-auto object-contain mix-blend-multiply"
+                  className="w-full max-w-[500px] h-auto object-contain mix-blend-multiply select-none"
                 />
               </div>
 
