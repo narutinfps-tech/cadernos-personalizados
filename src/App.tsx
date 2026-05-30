@@ -21,7 +21,8 @@ import {
   Eye, 
   Maximize2,
   Calendar,
-  AlertTriangle
+  AlertTriangle,
+  ShieldCheck
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plan, Bonus, Review, FAQItem } from './types';
@@ -104,7 +105,7 @@ export default function App() {
     {
       id: 8,
       question: "Existe garantia?",
-      answer: "Sim. Você tem 15 dias de garantia para testar o material com tranquilidade."
+      answer: "Sim. Você tem 7 dias de garantia para testar o material com tranquilidade."
     }
   ];
 
@@ -801,7 +802,7 @@ export default function App() {
                   type="button"
                   id="checkout_basic_btn"
                   onClick={() => handleOpenCheckout('basic')}
-                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider"
+                  className="w-full bg-slate-900 hover:bg-slate-800 hover:scale-[1.03] active:scale-[0.98] text-white font-black py-4.5 sm:py-5 px-6 rounded-2xl cursor-pointer transition-all uppercase text-sm sm:text-base tracking-widest shadow-lg"
                 >
                   {plans[0].cta}
                 </button>
@@ -897,9 +898,9 @@ export default function App() {
                   type="button"
                   id="checkout_complete_btn"
                   onClick={() => handleOpenCheckout('complete')}
-                  className="w-full bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] text-white font-black py-4 px-4 rounded-2xl cursor-pointer transition-all uppercase text-xs tracking-wider shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 border-none"
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 hover:scale-[1.03] active:scale-[0.98] text-white font-black py-4.5 sm:py-5 px-6 rounded-2xl cursor-pointer transition-all uppercase text-sm sm:text-base tracking-widest shadow-xl shadow-emerald-600/30 flex items-center justify-center gap-2.5 border-none"
                 >
-                  <Sparkles className="w-4 h-4 shrink-0 text-white animate-pulse" />
+                  <Sparkles className="w-5 h-5 shrink-0 text-white animate-pulse" />
                   <span>{plans[1].cta}</span>
                 </button>
               </div>
@@ -992,18 +993,18 @@ export default function App() {
           <div className="inline-flex justify-center">
             {/* Graphic Badge */}
             <div className="w-20 h-20 bg-gold-450/25 text-gold-600 border border-gold-300/40 rounded-3xl flex items-center justify-center shadow-lg relative">
-              <Calendar className="w-10 h-10 text-gold-600" />
-              <div className="absolute -top-1 -right-1 bg-gold-400 text-slate-900 font-bold text-[10px] px-2 py-0.5 rounded-full font-mono uppercase tracking-widest">15 dias</div>
+              <ShieldCheck className="w-11 h-11 text-gold-600 animate-pulse" />
+              <div className="absolute -top-1 -right-1 bg-gold-400 text-slate-900 font-bold text-[10px] px-2 py-0.5 rounded-full font-mono uppercase tracking-widest">7 dias</div>
             </div>
           </div>
 
           <h2 id="guarantee_title" className="font-display font-extrabold text-2xl md:text-4xl text-sky-950">
-            GARANTIA DE 15 DIAS — RISCO ZERO PARA VOCÊ
+            GARANTIA DE 7 DIAS — RISCO ZERO PARA VOCÊ
           </h2>
 
           <div className="text-slate-600 text-sm md:text-base leading-relaxed space-y-4 max-w-xl mx-auto font-semibold">
             <p>Você não precisa decidir no escuro.</p>
-            <p>Após a compra, você tem 15 dias para acessar o material, testar os modelos, personalizar no Canva e ver se ele realmente facilita sua rotina.</p>
+            <p>Após a compra, você tem 7 dias para acessar o material, testar os modelos, personalizar no Canva e ver se ele realmente facilita sua rotina.</p>
             <p>Se por qualquer motivo você sentir que não é para você, é só solicitar o reembolso dentro do prazo da garantia.</p>
           </div>
 
